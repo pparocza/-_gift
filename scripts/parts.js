@@ -9,7 +9,7 @@ class Piece {
         this.globalNow = 0;
 
         this.gain = audioCtx.createGain();
-        this.gain.gain.value = 1.5;
+        this.gain.gain.value = 1;
     
         this.fadeFilter = new FilterFade(0);
 
@@ -78,19 +78,19 @@ class Piece {
     
             // startTime , rate , rampArray , bufferLength , fund , frequencyRange , gainVal
 
-                this.rC5.load( this.rate * randomFloat( 0.8 , 1.2 ) , 2 , this.fund * 0.5 , [ 500 , 4000 ] , this.gainVal * 3.5 );
-                this.rC4.load( this.rate * randomFloat( 0.8 , 1.2 ) , 2 , this.fund * 0.5 , [ 500 , 4000 ] , this.gainVal * 3.5 );
+                this.rC5.load( this.rate * randomFloat( 0.8 , 1.2 ) , 2 , this.fund * 0.5 , [ 500 , 4000 ] , this.gainVal * 3 );
+                this.rC4.load( this.rate * randomFloat( 0.8 , 1.2 ) , 2 , this.fund * 0.5 , [ 500 , 4000 ] , this.gainVal * 3 );
                 
-                this.rC3.load( this.rate * randomFloat( 0.8 , 1.2 )  , 2 , this.fund * 1 , [ 200 , 800 ] , this.gainVal * 1 );
-                this.rC3A.load( this.rate * randomFloat( 0.8 , 1.2 ) , 2 , this.fund * 1 , [ 200 , 800 ] , this.gainVal * 1 );
+                this.rC3.load( this.rate * randomFloat( 0.8 , 1.2 )  , 2 , this.fund * 1 , [ 200 , 800 ] , this.gainVal * 0.75 );
+                this.rC3A.load( this.rate * randomFloat( 0.8 , 1.2 ) , 2 , this.fund * 1 , [ 200 , 800 ] , this.gainVal * 0.75 );
                 
                 // this.rC2.load( this.rate * randomFloat( 0.125 , 0.25 ) , 2 , this.fund * 2 , [ 500 , 4000 ] , this.gainVal * 1 );
-                this.rC2.load( randomFloat( 2 , 4 ) * this.rate * randomFloat( 0.8 , 1.2 ) , 2 , this.fund * 2 , [ 1000 , 5000 ] , this.gainVal * 0.25 );
+                this.rC2.load( randomFloat( 2 , 4 ) * this.rate * randomFloat( 0.8 , 1.2 ) , 2 , this.fund * 2 , [ 1000 , 5000 ] , this.gainVal * 0.5 );
 
                 //
 
-                this.BrC5.load( this.rate * randomFloat( 0.125 , 0.25 ) , 2 , this.fund * 0.5 , [ 500 , 1000 ] , this.gainVal * 3.5 );
-                this.BrC4.load( this.rate * randomFloat( 0.125 , 0.25 ) , 2 , this.fund * 0.5 , [ 500 , 1000 ] , this.gainVal * 3.5 );
+                this.BrC5.load( this.rate * randomFloat( 0.125 , 0.25 ) , 2 , this.fund * 0.5 , [ 500 , 1000 ] , this.gainVal * 3 );
+                this.BrC4.load( this.rate * randomFloat( 0.125 , 0.25 ) , 2 , this.fund * 0.5 , [ 500 , 1000 ] , this.gainVal * 3 );
                 
                 this.BrC3.load( this.rate * randomFloat( 0.8 , 1.2 )  , 2 , this.fund * 1 , [ 200 , 800 ] , this.gainVal * 1 );
                 this.BrC3A.load( this.rate * randomFloat( 0.8 , 1.2 ) , 2 , this.fund * 1 , [ 200 , 800 ] , this.gainVal * 1 );
@@ -425,7 +425,7 @@ class RampingConvolver{
 
         this.noise = new MyBuffer2( 1 , 1 , audioCtx.sampleRate );
         this.noise.noise().fill( 0 );
-        this.noise.playbackRate = 0.5;
+        this.noise.playbackRate = 0.55;
         this.noise.loop = true;
         this.noise.output.gain.value = 0.2;
 
