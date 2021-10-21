@@ -447,6 +447,7 @@ class RampingConvolver{
 
         const nAB = 1;
         let modDiv = 0;
+        let r = 0;
 
         for( let j = 0 ; j < nAB ; j++ ){
 
@@ -458,8 +459,10 @@ class RampingConvolver{
 
             for( let i = 0 ; i < modDiv ; i++ ){
 
+                // RANDOM LEVEL
                 this.tB.noise().fill( 0 );
-                this.tB.constant( 0.25 ).multiply( 0 );
+                r = randomFloat( 0.125 , 0.25 );
+                this.tB.constant( randomArrayValue( [ 0 , r , r * 4 ]) ).multiply( 0 );
     
                 this.tB.fm( randomFloat( 1 , 10 ) , randomFloat( 1 , 10 ) , randomFloat( 0.1 , 1 ) ).add( 0 );
                 this.tB.sine( randomFloat( 15 , 30 ) , randomFloat( 0.5 , 1 ) ).add( 0 );
@@ -474,6 +477,8 @@ class RampingConvolver{
 
             this.aBA[j].normalize( -1 , 1 );
             this.aBA[j].connect( this.aF );
+
+            bufferGraph( this.aBA[j].buffer );
 
         }
 
